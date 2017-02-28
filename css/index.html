@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compitable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>订餐网</title>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<div ng-view></div>
+<!--<script ng-view></script>-->
+
+<!--
+<script src="js/jquery-1.11.3.js"></script>
+&lt;!&ndash;<script src="js/bootstrap.js"></script>&ndash;&gt;
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+-->
+
+    <script src="js/jquery-1.11.3.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<!--<script src="js/angular-animate.js"></script>-->
+<script>
+    angular.module('mod',['ng','ngRoute'/*,'ngAnimate'*/]).config(function($routeProvider){
+        $routeProvider.when('/diyi',{
+            templateUrl:'tpl/diyi.html'
+        }).when('/dier',{
+            templateUrl:'tpl/dier.html',
+            controller:'mc1'
+        }).when('/disan',{
+            templateUrl:'tpl/disan.html'
+        }).otherwise({
+            redirectTo:'/diyi'
+        });
+    }).controller('mc1',function($scope,$location){
+        $scope.jump=function(){
+            $location.path('/disan')
+        }
+    })
+</script>
+
+
+</body>
+</html>

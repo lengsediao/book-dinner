@@ -1,0 +1,40 @@
+<div class="sy" ng-click="shouye()"></div>
+<div id="dd"></div>
+<script>
+        var $div = $('<div></div>');
+        var $txt = $('<h1>订餐网</h1>');
+        var $img = $('<img src="img/kid-foods.jpg" class="img-responsive"/>');
+        var $sy = $('.sy');
+        $sy.append($div);
+        $div.append($txt);
+        $div.append($img);
+        var $height= $(document.documentElement)[0].clientHeight;
+        $div.css({
+            width:'100%'
+        })
+        $txt.css({
+            width:'100%',
+            'text-align':'center',
+            'margin-bottom':'20px;',
+            color:'#3952C8',
+            'font-weight':'bold'
+        })
+        $img.css({
+            margin:'0 auto',
+            width:'100%'
+
+        });
+        $div.css({
+            /*        position:'absolute',
+             /!* left: ($(window).width() - $('.className').outerWidth())/2,*!/
+             top: ($height)/2*/
+            position:'absolute',
+            'margin-top':'50%',
+            top:'-5%'
+        });
+/*if(shouye()==true){
+    $div.style.display='none';
+}*/
+</script>
+
+

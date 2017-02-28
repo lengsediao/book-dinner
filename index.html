@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compitable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>订餐网</title>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<div ng-view></div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/angular-route.js"></script>
+<!--<script src="js/angular-animate.js"></script>-->
+<script>
+    angular.module('mod',['ng','ngRoute'/*,'ngAnimate'*/])
+            .controller('mc1',function($scope,$location){
+                $scope.shouye=function(){
+                    $location.path('/dingcan');
+                }
+            })
+            .controller('mc2',function($scope,$location,$http){
+                $scope.next=function(){
+                    $location.path('/xiangqing');
+                };
+                var i=0;
+                $scope.da = [];
+                $scope.jump=function(){
+                    var bianbianbian;
+                    $http.post("js/2.json").success(function(date){
+                        bianbianbian = date;
+                        var j=i+2;
+                        for(;i<j;i++){
+                            if(i<bianbianbian.length){
+                                 $scope.da.push(bianbianbian[i]);
+                            }
+                            if(i==bianbianbian.length){
+                                $('.container button').remove();
+                                var $div=$('<div></div>');
+                                var $span=$('<span  class=" glyphicon glyphicon-warning-sign"></span>')
+                                var $txt=$('<p>没有更多数据了</p>');
+                                $div.css({
+                                    'margin-bottom':'80px',
+                                    'border':'1px solid #ccc',
+                                    'background':'#FBDED0',
+                                    'padding':'15px 0 0 15px',
+                                    'overflow':'hidden',
+                                    'border-radius':'3px'
+                                });
+                                $txt.css({
+                                    'float':'left',
+                                    'margin-left':'15px',
+                                    'color':'#f00'
+                                });
+                                $span.css({
+                                    'float':'left',
+                                    color:'#f60'
+                                })
+                                $div.append($span);
+                                $div.append($txt);
+                                var $parent=$('#djjz');
+                                $parent.after($div);
+                            }
+                        }
+                    })
+                }
+            })
+            .config(function($routeProvider){
+        $routeProvider.when('/home',{
+            templateUrl:'page/home.html',
+            controller:'mc1'
+        }).when('/dingcan',{
+            templateUrl:'page/dingcan.html',
+            controller:'mc2'
+        }).when('/xiangqing',{
+            templateUrl:'page/xiangqing.html'
+            /*controller:'mc3'*/
+        }).when('/xinxi',{
+            templateUrl:'page/xinxi.html'
+        }).when('/succes',{
+            templateUrl:'page/succes.html'
+        }).otherwise({
+            redirectTo:'/home'
+        });
+    });
+</script>
+</body>
+</html>

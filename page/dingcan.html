@@ -1,0 +1,145 @@
+<div ng-include="'page/nav.html'"></div>
+<!--搜索框  定位 start-->
+<form class="container mar">
+    <div class="form-group  posi">
+        <input type="text" class="form-control" placeholder="搜索菜品名称和原料">
+        <span class="glyphicon glyphicon-plus abso"></span>
+    </div>
+</form>
+<!--搜索框  定位 end-->
+
+<!--content  start-->
+<div class="container">
+    <ul class="list-group" id="djjz">
+        <li class="list-group-item" ng-click="next()">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img/p0281.jpg" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">【酸甜开胃虾】</h4>
+                    <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <span>￥36.00</span>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+        <div class="media">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object" src="img/p2679.jpg" />
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">【酸甜开胃虾】</h4>
+                <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                <span>￥36.00</span>
+            </div>
+        </div>
+    </li>
+        <li class="list-group-item">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img/p4788.jpg" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">【酸甜开胃虾】</h4>
+                    <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <span>￥36.00</span>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img/p6611.jpg" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">【酸甜开胃虾】</h4>
+                    <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <span>￥36.00</span>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img/p7818.jpg" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">【酸甜开胃虾】</h4>
+                    <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <span>￥36.00</span>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img/p7933.jpg" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">【酸甜开胃虾】</h4>
+                    <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <span>￥36.00</span>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item" >
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img/p7933.jpg" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">【酸甜开胃虾】</h4>
+                    <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <span>￥36.00</span>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" src="img/p8489.jpg" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">【酸甜开胃虾】</h4>
+                    <p>主要面食：明虾、番茄酱、白糖、白醋、葱、姜、淀粉</p>
+                    <span>￥36.00</span>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item" ng-repeat="pro in da">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" ng-src="{{pro.img}}" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="{{pro.src}}" style="color:#333333;">{{pro.name}}</a></h4>
+                    <p>{{pro.information}}</p>
+                    <span>{{pro.price}}</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <button class="btn btn-success btn-block btn-mar" ng-click="jump()">加载更多</button>
+
+</div>
+<!--content  end-->
+<div ng-include="'page/foot.html'"></div>
